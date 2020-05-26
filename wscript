@@ -167,6 +167,7 @@ def configure(ctx):
     if ctx.options.EMSCRIPTEN:
         ctx.env.CXXFLAGS += ['-I' + os.path.join(os.environ['EMSCRIPTEN'], 'system', 'lib', 'libcxxabi', 'include')]
         ctx.env.CXXFLAGS += ['-Oz']
+        ctx.env.CXXFLAGS += ["-I/usr/include/eigen3"]
     elif sys.platform == 'darwin':
         # clang fails on 10.7 using <atomic>, because libc++ is not new enough
         #ctx.env.CC = 'clang'
